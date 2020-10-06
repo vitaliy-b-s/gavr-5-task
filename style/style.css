@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.app__wrap {
+  height: 600px;
+  width: 600px;
+  margin: auto;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.game-cell {
+  width: 135px;
+  height: 135px;
+  border: 1px solid black;
+  margin-top: 5px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 40px;
+  font-size: 3em;
+}
+.empty-cell {
+  border: none;
+}
