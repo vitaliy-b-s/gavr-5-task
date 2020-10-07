@@ -13,6 +13,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 .game-cell {
   width: 135px;
@@ -23,6 +24,7 @@ body {
   vertical-align: middle;
   padding-top: 40px;
   font-size: 3em;
+  cursor: pointer;
 }
 .empty-cell {
   border: none;
