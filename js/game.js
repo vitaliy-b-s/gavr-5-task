@@ -11,7 +11,7 @@ function shuffleArray(array) {
 }
 
 // Функция отрисовки перемешанного массива
-function fillIngDivs(array) {
+function renderCells(array) {
   for (let i = 0; i <= 15; i++) {
     document.querySelector(`[data-id="${i}"]`).innerHTML = array[i];
     if (array[i] === 0) {
@@ -20,12 +20,25 @@ function fillIngDivs(array) {
     }
   }
 }
-// Начало игры
-function startGame() {
-  let shuffledArray = shuffleArray(defoultGame);
-  fillIngDivs(shuffledArray);
-}
 
 //Функция замены элементов в массиве
+function replaceElememt(event) {
+  let gameSize = 4;
+  let emptyCellRow;
+  let emptyCellColumn;
+  let emtyCell;
+  let clickedCell = event.target.dataset.id;
 
-startGame();
+  for (let i = 0; i <= 15; i++) {
+    if (shuffledArray[i] == 0) {
+      emtyCell = shuffledArray.indexOf(shuffledArray[i]);
+    }
+  }
+
+  emptyCellRow = Math.floor(emtyCell / gameSize);
+  emptyCellColumn = emtyCell % gameSize;
+}
+
+let shuffledArray = shuffleArray(defoultGame);
+fillIngDivs(shuffledArray);
+document.querySelector(".app__wrap").addEventListener("click", replaceElememt);
