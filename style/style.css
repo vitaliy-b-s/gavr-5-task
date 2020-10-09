@@ -4,6 +4,10 @@
 body {
   margin: 0px;
   padding: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 .app__wrap {
   height: 600px;
@@ -11,21 +15,20 @@ body {
   margin: auto;
   border: 1px solid #000;
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
   cursor: pointer;
 }
 .game-cell {
-  width: 135px;
-  height: 135px;
-  border: 1px solid black;
-  margin-top: 5px;
-  text-align: center;
-  vertical-align: middle;
-  padding-top: 40px;
-  font-size: 3em;
-  cursor: pointer;
+  border-collapse: collapse;
 }
+
 .empty-cell {
   border: none;
+}
+.menu-container {
+  background-color: #fff;
+  height: 600px;
+  width: 600px;
+  border: 1px solid #000;
+  margin: auto;
 }
