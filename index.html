@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="./style/style.css" />
     <title>Document</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="menu-container">
-      <div class="new-game">
-        <button class="new-game-button" onclick="startGame()">
+        <div class="new-game">
+            <button class="new-game-button" onclick="startGame(),hideMenu()">
           Новая игра
         </button>
-      </div>
-      <div class="scores">
-        <button>Лучшие результаты</button>
-      </div>
-      <div class="field-size">
-        <label for="select">Выберите размер поля</label>
-        <select name="select" id="game-type">
+        </div>
+        <div class="field-size">
+            <label for="select">Выберите размер поля</label>
+            <select name="select" id="game-type">
           <option value="4" data-value="4">4*4</option>
           <option value="5" data-value="8">5*5</option>
           <option value="6" data-value="16">6*6</option>
           <option value="7" data-value="16">7*7</option>
           <option value="8" data-value="16">8*8</option>
         </select>
-      </div>
+        </div>
+        <div class="scores">
+            <button class="scores-button">Лучшие результаты</button>
+        </div>
+
     </div>
-    <div class="app__wrap" id="app"></div>  
+    <div class="app__wrap" id="app"></div>
 
     <script src="./js/game.js"></script>
-  </body>
+    <script src="./js/menu.js"></script>
+</body>
+
 </html>

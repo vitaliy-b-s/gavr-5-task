@@ -1,34 +1,63 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 body {
-  margin: 0px;
-  padding: 0px;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
+
 .app__wrap {
-  height: 600px;
-  width: 600px;
-  margin: auto;
-  border: 1px solid #000;
-  display: flex;
-  flex-wrap: wrap;
-  cursor: pointer;
+    height: 300px;
+    width: 300px;
+    margin: 20px auto;
+    border: 2px solid #000;
+    border-radius: 10px;
+    display: none;
+    flex-wrap: wrap;
+    cursor: pointer;
 }
+
 .game-cell {
-  border-collapse: collapse;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
 }
 
 .empty-cell {
-  border: none;
+    border: none;
 }
+
 .menu-container {
-  background-color: #fff;
-  height: 600px;
-  width: 600px;
-  border: 1px solid #000;
-  margin: auto;
+    background-color: rgb(232, 243, 132);
+    border-radius: 10px;
+    height: 200px;
+    width: 300px;
+    border: none;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.scores-button,
+.new-game-button {
+    outline: none;
+    margin: 20px;
+    height: 30px;
+    font-size: 1.2em;
+    background-color: rgb(162, 224, 46);
+    border-radius: 5px;
+    border: none;
+}
+
+.scores-button:active,
+.new-game-button:active {
+    box-shadow: inset 5px 5px 8px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
 }
