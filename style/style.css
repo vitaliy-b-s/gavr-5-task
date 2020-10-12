@@ -8,16 +8,52 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
-
-.app__wrap {
-    height: 300px;
+.application{
+    margin: 50px auto;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
     width: 300px;
-    margin: 20px auto;
+}
+.time-count{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+
+    width: 100%;
+}
+.time, 
+.count {
+    height: 100%;
+}
+.counter-value {
+    text-align: right;
+}
+.time-value,
+.counter-value {
+    height: 100%;;
+    border:none;
+    outline: none;
+    font-size: 1.3rem;
+}
+.time-value{
+    width: 100px;
+}
+.counter-value {
+    width: 50px;
+}
+.app__wrap {
+    height: 300px;  
+    width: 300px;
+    margin: 5px auto;
     border: 2px solid #000;
     border-radius: 10px;
-    display: none;
+    display: flex;
     flex-wrap: wrap;
     cursor: pointer;
 }
@@ -59,5 +95,5 @@ body {
 
 .scores-button:active,
 .new-game-button:active {
-    box-shadow: inset 5px 5px 8px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+    box-shadow: inset 6px 6px 8px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
 }

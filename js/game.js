@@ -1,10 +1,13 @@
 let shuffledArray;
+let counter = 0;
 // Начало игры 
 function startGame() {
     document.getElementById('app').innerHTML = "";
+    document.querySelector('.counter-value').value = counter;
     createHTMLStructure(createDefaultArray())
     shuffledArray = shuffleArray(createDefaultArray());
     renderCells(shuffledArray);
+    setTimeCounter();
     emptyIndex = findEmpty(shuffledArray);
 }
 
@@ -79,17 +82,43 @@ function renderCells(array) {
     foundEmptyElem.style.height = cellSize;
     foundEmptyElem.style.width = cellSize
 }
+// Функция запуска счетчика и времени
+function setTimeCounter() {
+    let time = document.querySelector('.time-value');
+    let second=0;
+    let minute =0;
+    time.value = minute + ":" + second
+    setInterval(counter,1000);
+    function counter () {
+        time.value = minute + ":" + second;
+        second++;
+        if (second == 61) {
+            second = 0;
+            minute++;
+        }
+        }
+}
+
+//Функция счетчика шагов
+function countSteps (){
+    let count = document.querySelector('.counter-value')
+    counter++;
+    count.value =counter;
+    
+
+}
 
 //Функция замены элементов в массиве
 function onCellClick(event) {
     const targetIndex = event.target.dataset.id;
     const canSwap = canSwapElements(emptyIndex, targetIndex);
     if (canSwap) {
+        countSteps ()
         swapElements(shuffledArray, targetIndex, emptyIndex);
         renderCells(shuffledArray);
         emptyIndex = findEmpty(shuffledArray);
     }
-    console.log(ifWin());
+    checkifWin();
 }
 
 //Функция поиска пустого элемента
@@ -129,16 +158,20 @@ function swapElements(array, firstIndex, secondIndex) {
 }
 
 //Функция проверки выйгрышной комбинации
-function ifWin() {
+function checkifWin() {
     let currentArray = [];
     document.querySelectorAll('.game-cell').forEach(item => {
-        currentArray[item.dataset.id] = item.innerHTML;
+        currentArray[item.dataset.id] = +item.innerHTML;
     })
     let defaultArray = createDefaultArray();
+    defaultArray.shift();
+    defaultArray.push(0);
+    
     if (JSON.stringify(currentArray) == JSON.stringify(defaultArray)) {
-        return true;
+        alert('You win');
     } else {
         return false;
     }
 
 }
+

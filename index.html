@@ -29,10 +29,25 @@
         <div class="scores">
             <button class="scores-button">Лучшие результаты</button>
         </div>
-
     </div>
-    <div class="app__wrap" id="app"></div>
-
+    <div class="application">
+        <div class="time-count">
+            <div class="time">
+                <input type="text" class = "time-value" readonly>
+            </div>
+            <div class="count">
+                <input type="text" class = "counter-value" readonly>
+            </div>
+        </div>
+        <div class="saving-result">
+            <ul class="scores-list"></ul>
+        </div>
+        <div class="app__wrap" id="app">
+            <div class="name__record"></div>
+            <div class="step__record"></div>
+            <div class="time__record"></div>
+        </div>
+    </div>
     <script src="./js/game.js"></script>
     <script src="./js/menu.js"></script>
 </body>
