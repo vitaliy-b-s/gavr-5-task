@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="./style/style.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="menu-container">
-        <div class="new-game">
-            <button class="new-game-button" onclick="startGame(),hideMenu()">
+      <div class="new-game">
+        <button class="new-game-button" onclick="startGame(),hideMenu()">
           Новая игра
         </button>
-        </div>
-        <div class="field-size">
-            <label for="select">Выберите размер поля</label>
-            <select name="select" id="game-type">
+      </div>
+      <div class="field-size">
+        <label for="select">Выберите размер поля</label>
+        <select name="select" id="game-type">
           <option value="4" data-value="4">4*4</option>
           <option value="5" data-value="8">5*5</option>
           <option value="6" data-value="16">6*6</option>
           <option value="7" data-value="16">7*7</option>
           <option value="8" data-value="16">8*8</option>
         </select>
-        </div>
-        <div class="scores">
-            <button class="scores-button">Лучшие результаты</button>
-        </div>
+      </div>
+      <div class="scores">
+        <button class="scores-button" onclick="openScoresTable()">
+          Лучшие результаты
+        </button>
+      </div>
     </div>
     <div class="application">
-        <div class="time-count">
-            <div class="time">
-                <input type="text" class = "time-value" readonly>
-            </div>
-            <div class="count">
-                <input type="text" class = "counter-value" readonly>
-            </div>
+      <div class="time-count">
+        <div class="time">
+          <input type="text" class="time-value" readonly />
         </div>
-        <div class="saving-result">
-            <ul class="scores-list"></ul>
+        <div class="count">
+          <input type="text" class="counter-value" readonly />
         </div>
-        <div class="app__wrap" id="app">
-            <div class="name__record"></div>
-            <div class="step__record"></div>
-            <div class="time__record"></div>
-        </div>
+      </div>
+      <div id="app" class="app__wrap"></div>
+      <button class="return-button" onclick="openMenu()">Меню</button>
+    </div>
+    <div class="score-table__container">
+      <ul class="score-table__rank"></ul>
+      <button class="return-button" onclick="openMenu()">В меню</button>
     </div>
     <script src="./js/game.js"></script>
     <script src="./js/menu.js"></script>
-</body>
-
+  </body>
 </html>
