@@ -2,7 +2,6 @@ let shuffledArray;
 let counter = 0;
 let timeCounter;
 let scoreArray = [];
-
 let scorePosition = 0;
 
 // Начало игры
@@ -10,8 +9,9 @@ function startGame() {
   clearInterval(timeCounter);
   document.getElementById("app").innerHTML = "";
   document.querySelector(".counter-value").value = counter;
-  createHTMLStructure(createDefaultArray());
-  shuffledArray = shuffleArray(createDefaultArray());
+  let defaultArray = createDefaultArray();
+  createHTMLStructure(defaultArray);
+  shuffledArray = shuffleArray(defaultArray);
   renderCells(shuffledArray);
   setTimeCounter();
   emptyIndex = findEmpty(shuffledArray);
@@ -171,9 +171,7 @@ function checkifWin() {
   let defaultArray = createDefaultArray();
   defaultArray.shift();
   defaultArray.push(0);
-  console.log(currentArray.splice(4), defaultArray.splice(4));
-  if (JSON.stringify(currentArray) == JSON.stringify(defaultArray)) {
-    alert("You win");
+  if (JSON.stringify(currentArray) === JSON.stringify(defaultArray)) {
     clearInterval(timeCounter);
     createScorePosition();
     counter = 0;
@@ -188,22 +186,22 @@ function createScorePosition() {
   let score = document.querySelector(".counter-value").value;
   let time = document.querySelector(".time-value").value;
 
-  scoreArray[counter] = {
+  let position = {
     stepValue: score,
     timeValue: time,
     playerName: player,
   };
-
+  scoreArray.push(position);
   let sortedScoreArray = scoreArray.sort((a, b) => {
-    if (a.score < b.score) {
+    if (+a.stepValue < +b.stepValue) {
       return -1;
-    } else if (a.score > b.score) {
+    } else if (a.stepValue > b.stepValue) {
       return 1;
     } else {
       return 0;
     }
   });
-  localStorage.setItem("score", sortedScoreArray);
+  localStorage.setItem("score", JSON.stringify(sortedScoreArray));
   renderScoreTable();
 }
 
@@ -213,12 +211,18 @@ function renderScoreTable() {
     return;
   }
   let scoreTable = document.querySelector(".score-table__rank");
-  let array = localStorage.getItem("score");
-  array.forEach((elememt) => {
+  scoreTable.innerHTML = "";
+  let array = JSON.parse(localStorage.score);
+  array.forEach((element) => {
     let li = document.createElement("li");
     li.className = "score-table__position";
     li.textContent =
-      elememt.palyer + ":" + element.score + "шагов" + elememt.time + "времени";
+      element.playerName +
+      " : " +
+      element.stepValue +
+      " шагов " +
+      element.timeValue +
+      " времени ";
     scoreTable.appendChild(li);
   });
 }

@@ -123,8 +123,9 @@ body {
 }
 
 .score-table__position {
-    border-bottom: 1px dashed  rgb(146, 132, 8);
+    border-bottom: 2px solid black;
     width: 100%;
+    word-wrap: break-word;
 }
 .return-button {
     margin-bottom: 20px;
